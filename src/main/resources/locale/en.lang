@@ -1,0 +1,14 @@
+[item]
+buildersbagowalls=Builder's Bag-o'-Walls
+buildersbagofloors=Builder's Bag-o'-Floors
+buildersbagomiscellany=Builder's Bag-o'-Miscellany
+buildersbagofurniture=Builder's Bag-o'-Furniture
+
+[itemtooltip]
+builderswallsbagtip=Stores walls picked up
+buildersfloorsbagtip=Stores floors and paths picked up
+buildersmiscbagtip=Stores doors, windows, columns,\nfences, and gates picked up
+buildersfurniturebagtip=Stores furniture and\ncarpets picked up
+storedwalls=Stored walls: <items>
+storedtiles=Stored tiles: <items>
+storeditems=Stored items: <items>
