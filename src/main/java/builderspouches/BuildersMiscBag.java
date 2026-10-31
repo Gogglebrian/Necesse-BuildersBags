@@ -13,6 +13,7 @@ import necesse.inventory.item.placeableItem.objectItem.ObjectItem;
 public class BuildersMiscBag extends PouchItem {
     public BuildersMiscBag() {
         this.rarity = Item.Rarity.QUEST;
+        this.drawStoredItems = false;
         this.setItemCategory(ItemCategory.craftingManager, new String[]{"equipment"});
     }
 
@@ -37,7 +38,7 @@ public class BuildersMiscBag extends PouchItem {
     }
 
     public boolean isValidRequestType(Item.Type type) {
-        return type == Item.Type.MISC;
+        return false;
     }
 
     public int getInternalInventorySize() {

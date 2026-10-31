@@ -14,6 +14,7 @@ import necesse.level.gameObject.WallObject;
 public class BuildersWallsBag extends PouchItem {
     public BuildersWallsBag() {
         this.rarity = Rarity.QUEST;
+        this.drawStoredItems = false;
         this.setItemCategory(ItemCategory.craftingManager, new String[]{"equipment"});
     }
 
@@ -34,7 +35,7 @@ public class BuildersWallsBag extends PouchItem {
     }
 
     public boolean isValidRequestType(Item.Type type) {
-        return type == Type.MISC;
+        return false;
     }
 
     public int getInternalInventorySize() {

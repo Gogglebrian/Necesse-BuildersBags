@@ -10,13 +10,18 @@ import necesse.inventory.item.ItemCategory;
 import necesse.inventory.item.miscItem.PouchItem;
 import necesse.inventory.item.placeableItem.objectItem.ObjectItem;
 import necesse.level.gameObject.GameObject;
+import necesse.level.gameObject.ProcessingForgeObject;
+import necesse.level.gameObject.container.CampfireObject;
+import necesse.level.gameObject.container.MusicPlayerObject;
 import necesse.level.gameObject.furniture.CarpetObject;
+import necesse.level.gameObject.furniture.FlowerObject;
 import necesse.level.gameObject.furniture.FurnitureObject;
-import necesse.level.gameObject.furniture.RoomFurniture;
+import necesse.level.gameObject.happinessObject.WitchCauldronObject;
 
 public class BuildersFurnitureBag extends PouchItem {
     public BuildersFurnitureBag() {
         this.rarity = Rarity.QUEST;
+        this.drawStoredItems = false;
         this.setItemCategory(ItemCategory.craftingManager, new String[]{"equipment"});
     }
 
@@ -28,8 +33,23 @@ public class BuildersFurnitureBag extends PouchItem {
         return tooltips;
     }
 
+    public boolean isLightObject(GameObject object) {
+        return object.roomProperties.contains("lights");
+    }
+    public boolean isFurniture(GameObject object) {
+        return object instanceof FurnitureObject && !(object instanceof FlowerObject) && !(object instanceof CarpetObject);
+    }
+    public boolean isValidObject(GameObject object) {
+        return isFurniture(object)
+            || isLightObject(object)
+            || object instanceof ProcessingForgeObject
+            || object instanceof MusicPlayerObject
+            || object instanceof CampfireObject
+            || object instanceof WitchCauldronObject;
+    }
+
     public boolean isValidPouchItem(InventoryItem item) {
-        return item.item.isPlaceable() && item.item instanceof ObjectItem && ((ObjectItem) item.item).getObject() instanceof RoomFurniture;
+        return item.item.isPlaceable() && item.item instanceof ObjectItem && isValidObject(((ObjectItem) item.item).getObject());
     }
 
     public boolean isValidRequestItem(Item item) {
@@ -37,7 +57,7 @@ public class BuildersFurnitureBag extends PouchItem {
     }
 
     public boolean isValidRequestType(Item.Type type) {
-        return type == Item.Type.MISC;
+        return false;
     }
 
     public int getInternalInventorySize() {

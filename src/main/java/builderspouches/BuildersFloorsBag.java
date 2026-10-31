@@ -13,6 +13,7 @@ import necesse.inventory.item.placeableItem.tileItem.TileItem;
 public class BuildersFloorsBag extends PouchItem {
     public BuildersFloorsBag() {
         this.rarity = Rarity.QUEST;
+        this.drawStoredItems = false;
         this.setItemCategory(ItemCategory.craftingManager, new String[]{"equipment"});
     }
 
@@ -24,12 +25,12 @@ public class BuildersFloorsBag extends PouchItem {
         return tooltips;
     }
 
-    public static boolean isFloorTile(Item item) {
-        return item instanceof TileItem && (item.getStringID().contains("floor") || item.getStringID().contains("path"));
+    public static boolean isFloor(Item item) {
+        return ItemCategory.getCategory("tiles","floors").containsItemOrInChildren(item);
     }
 
     public boolean isValidPouchItem(InventoryItem item) {
-        return item.item.isPlaceable() && (isFloorTile(item.item));
+        return item.item.isPlaceable() && item.item instanceof TileItem && (isFloor(item.item));
     }
 
     public boolean isValidRequestItem(Item item) {
@@ -37,7 +38,7 @@ public class BuildersFloorsBag extends PouchItem {
     }
 
     public boolean isValidRequestType(Item.Type type) {
-        return type == Type.MISC;
+        return false;
     }
 
     public int getInternalInventorySize() {
