@@ -20,13 +20,14 @@ import necesse.level.gameObject.happinessObject.WitchCauldronObject;
 
 public class BuildersFurnitureBag extends PouchItem {
     public BuildersFurnitureBag() {
-        this.rarity = Rarity.QUEST;
+        this.rarity = Rarity.EPIC;
         this.drawStoredItems = false;
         this.setItemCategory(ItemCategory.craftingManager, new String[]{"equipment"});
     }
 
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);
+        tooltips.add(Localization.translate("itemtooltip", "buildersbagtip"));
         tooltips.add(Localization.translate("itemtooltip", "buildersfurniturebagtip"));
         tooltips.add(Localization.translate("itemtooltip", "rclickinvopentip"));
         tooltips.add(Localization.translate("itemtooltip", "storeditems", "items", this.getStoredItemAmounts(item)));

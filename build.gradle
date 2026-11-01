@@ -7,9 +7,9 @@ plugins {
 
 project.ext.modID = "gogglebrian.buildersbags" // The unique id of your mod. Must be all lowercase and cannot use special characters.
 project.ext.modName = "Builders Bags" // The display name of your mod.
-project.ext.modVersion = "1.0.0" // Your current builds version. Must follow the xx.xx... format.
+project.ext.modVersion = "1.0.1" // Your current builds version. Must follow the xx.xx... format.
 project.ext.gameVersion = "1.3.3" // The target game version.
-project.ext.modDescription = "Adds Builder's Bags: 6 dedicated pouches for Walls, Floors, Furniture, Decorations, Landscaping, and Miscellany (doors, windows, columns, and fences)." // Short description of what your mod is.
+project.ext.modDescription = "Adds Builder's Bags: dedicated pouches for Walls, Floors, Furniture, Decorations, Landscaping, and Miscellany (doors, windows, columns, and fences). Craft at a Demonic Workstation." // Short description of what your mod is.
 project.ext.author = "Gogglebrian" // Your name
 
 /**

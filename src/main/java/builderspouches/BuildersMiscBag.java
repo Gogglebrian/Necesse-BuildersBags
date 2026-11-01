@@ -12,13 +12,14 @@ import necesse.inventory.item.placeableItem.objectItem.ObjectItem;
 
 public class BuildersMiscBag extends PouchItem {
     public BuildersMiscBag() {
-        this.rarity = Item.Rarity.QUEST;
+        this.rarity = Item.Rarity.EPIC;
         this.drawStoredItems = false;
         this.setItemCategory(ItemCategory.craftingManager, new String[]{"equipment"});
     }
 
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);
+        tooltips.add(Localization.translate("itemtooltip", "buildersbagtip"));
         tooltips.add(Localization.translate("itemtooltip", "buildersmiscbagtip"));
         tooltips.add(Localization.translate("itemtooltip", "rclickinvopentip"));
         tooltips.add(Localization.translate("itemtooltip", "storeditems", "items", this.getStoredItemAmounts(item)));
